@@ -1,0 +1,23 @@
+<!DECOTYPE html>
+<html lang="en">
+<head>
+<title>ここはテスト</title>
+
+<script src="https://www.gstatic.com/firebasejs/3.3.2/firebase.js"></script>
+<script src="http://code.jquery.com/jquery-3.1.0.min.js"></script>
+<script>
+  // Initialize Firebase
+  var config = {
+    apiKey: "AIzaSyCpsbzErCXBUdOwgYanchSH-h4qPrJ7ieo",
+    authDomain: "intern-net.firebaseapp.com",
+    databaseURL: "https://intern-net.firebaseio.com",
+    storageBucket: "intern-net.appspot.com",
+  };
+  firebase.initializeApp(config);
+</script>
+    
+</head>
+<body>
+<h1>テストページの最初の文字列</h1>
+</body>
+</html>

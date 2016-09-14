@@ -1,0 +1,76 @@
+<!DECOTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>ここはテスト</title>
+<script src="https://www.gstatic.com/firebasejs/3.3.2/firebase.js"></script>
+<script>
+  // Initialize Firebase
+  var config = {
+    authDomain: "favst-dojo.firebaseapp.com",
+    databaseURL: "https://favst-dojo.firebaseio.com",
+    storageBucket: "favst-dojo.appspot.com",
+    messagingSenderId: "732756833582"
+  };
+  firebase.initializeApp(config);
+  
+  var db = firebase.database();
+
+  db.ref('/voices/all').once('value', function (snapshot) {
+    var obj = snapshot.val();
+    console.log(obj);
+  });
+  
+</script>
+<script src="https://www.gstatic.com/firebasejs/3.3.2/firebase.js"></script>
+<script src="http://code.jquery.com/jquery-3.1.0.min.js"></script>
+
+    
+</head>
+<body>
+<h1>テストページの最初の文字列</h1>
+<img src="start_360.jpg">
+<div id='no1'>id:no1</div>
+<div id='no2'>id:no2</div>
+<div class="c1">idno3</div>
+<button id="btnRefresh"></button>
+
+
+<script>
+function rewrite4(val){
+$("#no2_url").attr("href", val['data'][1]["url"]);
+$("#no2_url").text(val['data'][1]["url"]);
+
+}
+
+
+
+var cnt = 0;
+function rewrite(){
+cnt++;
+$(".c1").text("クラス分は一気に変更 cnt:"+cnt);
+};
+$("#no1").text("$getJSON")
+
+
+function rewrite3(val){
+	console.log(val);
+	console.log(val['data'][0].title);
+	
+	var title=val['data'][0].title;
+	var aTag=$("<a>");
+	aTag.text(title);
+	aTag.attr("href",val['data'][0].url);
+	$("#no1").text("");
+	aTag.appendTo($("#no1"));
+};
+/*
+$("#btnRefresh").on("click",rewrite);
+$("#btnRefresh").on("click",rewrite2);*/
+
+$.getJSON("dummy.json",rewrite3);
+
+</script>
+
+</body>
+</html>

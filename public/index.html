@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Welcome to Firebase Hosting</title>
+ <script src="https://www.gstatic.com/firebasejs/3.3.2/firebase.js"></script>
+<script>
+  // Initialize Firebase
+  var config = {
+    authDomain: "favst-dojo.firebaseapp.com",
+    databaseURL: "https://favst-dojo.firebaseio.com",
+    storageBucket: "favst-dojo.appspot.com",
+    messagingSenderId: "732756833582"
+  };
+  firebase.initializeApp(config);
+  var db = firebase.database();
+  db.ref('/voices/all').once('value', function (snapshot) {
+    var obj = snapshot.val();
+    console.log(obj);
+  });
+  
+
+
+
+
+</script>
+    <style media="screen">
+      body {
+        font-family: Roboto, Arial, sans-serif;
+        background: #ECEFF1;
+        color: rgba(0,0,0,0.87);
+      }
+
+      a {
+        color: rgb(3,155,229);
+      }
+
+      #message {
+      
+        max-width: 400px;
+        margin: 40px auto;
+        box-shadow: 0 1px 3px 0 rgba(0,0,0,0.2),0 1px 1px 0 rgba(0,0,0,0.14),0 2px 1px -1px rgba(0,0,0,0.12);
+        border-radius: 2px;
+        background: white;
+        padding: 16px 24px;
+      }
+
+      .list li {
+    display: flex;
+    align-items: center;
+    flex-basis: 49%;
+    border: solid 0.2px #000000;}
+    li {
+    text-align: center;
+    }
+      
+      .txt {
+    justify-content: center;
+    width: 100%;
+    
+}
+      h2 {
+      font-color:#ffffff;
+      }
+      
+      #tab1 {
+      font-color:white;
+      border: solid 1px #ffffff;
+      background-color:#ff6347
+      }
+      #tab2 {
+      border: solid 1px #ffffff;
+      background-color:#228b22
+      }
+      #tab3 {
+      border: solid 1px #ffffff;
+      background-color:#c71585
+      }
+      #tab4 {
+      border: solid 1px #fffffff;
+      background-color:#ff4500
+      }
+      #tab5 {
+      border: solid 1px #ffffff;
+      background-color:#191970
+      }
+      #tab6 {
+      border: solid 1px #ffffff;
+      background-color:#dc143c
+      }
+      
+      #tab7 {
+      border: solid 1px #ffffff;
+      background-color:#6495ed
+      }
+      
+      #tab8 {
+      border: solid 1px #ffffff;
+      background-color:#00bfff
+      }
+      
+      .table{
+      color:#ffffff;
+      }
+      
+      .title{
+      font-size:40px;
+      }
+      .table {
+	border-collapse: collapse;
+}
+.td {
+	border: solid 1px;
+	padding: 0.5em;
+}
+     .btnRefresh{
+     height:20px;
+     width:20px;
+     }
+     
+     .front{
+     height:20px;
+     width:20px;
+     }
+     
+     .stop{
+     hidden;
+     }
+    </style>
+    
+  </head>
+  <body>
+    <div id="message">
+    
+      <div class=title><center><h1>favclip-station</h1></center></div>
+      <!--
+      <center>
+      <table class="table">
+      <ul>
+      <tr><td class="tab1">all</td><td class="tab2">エンタメ</td></tr>
+      <tr><td class="tab3">ファッション</td><td class="tab4">IT</td></tr>
+      <tr><td class="tab5">グルメ</td><td class="tab6">ニュース</td></tr>
+      <tr><td class="tab7">スポーツ</td><td class="tab8">ホビー</td></tr>
+      </ul>
+      </table>
+      </center>
+      -->
+      
+      
+      
+      <ul class="list">
+      <li id="tab1">
+      <div class="txt">
+      <button id="tab1">
+      <h2>ALL</h2>
+      </button>
+      </div><!--txt-->
+      
+      <li id="tab2">
+      <div class="txt">
+      <button id="tab2">
+      <h2>エンタメ</h2>
+      </button>
+      </div><!--txt-->
+      
+      <li id="tab3">
+      <div class="txt">
+      <button id="tab3">
+      <h2>IT</h2>
+      </button>
+      </div><!--txt-->
+      
+      <li id="tab4">
+      <div class="txt">
+      <button id="tab4">
+      <h2>ファッション</h2>
+      </button>
+      </div><!--txt-->
+      
+      <li id="tab5">
+      <div class="txt">
+      <button id="tab5">
+      <h2>ニュース</h2>
+      </button>
+      </div><!--txt-->
+      
+      <li id="tab6">
+      <div class="txt">
+      <button id="tab6">
+      <h2>グルメ</h2>
+      </button>
+      </div><!--txt-->
+      
+      <li id="tab7">
+      <div class="txt">
+      <button id="tab7">
+      <h2>スポーツ</h2>
+      </button>
+      </div><!--txt-->
+      
+      <li id="tab8">
+      <div class="txt">
+      <button id="tab8">
+      <h2>ホビー</h2>
+      </button>
+      </div><!--txt-->
+      <ul><!--list-->
+      
+      
+      
+      <div id="articleinfo">
+      <div id="articleTitle">ジャンル</div>
+      <div id="articleTitle">記事</div>
+      </div><!--articleinfo-->
+      <div id="player">
+      <button id="back"><img src="sozai/back.jpg" alt id="reverse" class="btnplayer"></button>
+      <button id="btnRefresh"><img src="sozai/start_360.jpg" alt id="play" class="btnplayer"></button>
+      <button id="front"><img src="sozai/front.png" alt id="next" class="btnplayer"></button>
+      <button id="stop"><img src="sozai/stop.png" alt id="next" class="btnplayer"></button>
+      <audio id=audio controls><source src="sozai/sample(1).wav"></audio>
+      </div>
+
+    	<a href="javaScript:change()">
+		<img src="" name="myIMG" >
+		</a>
+
+    	<img src="" width="52" height="60" border="0">
+      
+    </div>
+     <script src="http://code.jquery.com/jquery-3.1.0.min.js"></script>
+    <script>
+    var cnt=0;
+    function rewrite(){
+    cnt++;
+    if (cnt%2===1){
+    $("#play").attr("src", "sozai/stop.png");
+    }else{
+    $("#play").attr("src","sozai/start_360.jpg");
+    }
+    };
+    $("#no1").text("$getJSON")
+    $("#btnRefresh").on("click",rewrite);
+    
+    function rewrite3(val){
+	var title=val['data'][0].title;
+	var aTag=$("<a>");
+	aTag.text(title);
+	aTag.attr("href",val['data'][0].url);
+	$("#articleTitle").text("");
+	aTag.appendTo($("#articleTitle"));
+};
+
+$("#tab1").on("click",func1);
+
+   function func1(){
+   $.getJSON("dummy.json",rewrite3);
+   }
+   
+var storage = firebase.storage();
+
+console.log('Genres');
+db.ref('/voices').once('value', function(snapshot) {
+    console.log(snapshot.val());
+    console.log('=====================================================================');
+});
+    var IDlist=[];
+    var title=[];
+    var link=[];
+    var voice=[];
+db.ref('/voices/all').once('value', function (snapshot) {
+    var obj = snapshot.val();
+    Object.keys(obj).forEach(function (id) {
+        var val = obj[id];
+        storage.refFromURL(val.voiceURL).getDownloadURL().then(function (voiceURL) {
+        console.log('ID:', id);
+        console.log('Title:', val.title);
+        console.log('LinkURL:', val.linkURL);
+        console.log('VoiceURL:', voiceURL);
+         IDlist.push(id);
+         title.push(val.title);
+         link.push(val.linkURL);
+         voice.push(voiceURL);
+            console.log('=====================================================================');
+        });
+    });
+});
+
+   var i=0;
+   function setSound(){
+   $("#audio").attr("src", voice[i]);
+   document.getElementById('audio').play();
+   };
+   $("#btnRefresh").on("click",setSound);
+   $("#back").on("click", back);
+   function back(){
+   i--;
+   
+   };
+   $("#front").on("click", front);
+   function front(){
+   i++;
+   };
+   
+   
+   
+    </script>
+   
+  </body>
+</html>
